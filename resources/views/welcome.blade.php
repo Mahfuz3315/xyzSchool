@@ -26,10 +26,11 @@
                 <a href="{{url('/')}}" class="ml-4" style="color:whitesmoke ;">Home</a>
                 <a href="{{url('/Notice')}}" class="ml-4" style="color:whitesmoke ;">Notice</a>
                 <a href="{{url('/Calender')}}" class="ml-4" style="color:whitesmoke ;">Calender</a>
+                <a href="{{url('/admission')}}" class="ml-4" style="color:whitesmoke ;">Admission</a>
                 @if (Route::has('login'))
                 <div class="hidden fixed top-0 right-0 px-6 py-4 sm:block">
                     @auth
-                        <a href="{{ url('/home') }}" class="">Home</a>
+                        <a href="{{ url('/dashboard') }}" class="ml-4" style="color:whitesmoke ;">Dashboard</a>
                     @else
                         <a href="{{ route('login') }}" class="ml-4" style="color:whitesmoke ;">Log in</a>
 
@@ -52,7 +53,7 @@
                                 and show them the way to make a difference in the world.
                             </p>
                             <p>Admission going on! Apply today for a chance of a lifetime</p>
-                            <button style="margin-top: 20px;background-color: #398AB9;color: #EEEEEE;height: 30px;width: 100px;transition: 0.5s;"><a href="{{url('/applynow')}}" id="applynowlink">Apply Now</a></button>
+                            <button style="margin-top: 20px;background-color: #398AB9;color: #EEEEEE;height: 30px;width: 100px;transition: 0.5s;"><a href="{{url('/admission')}}" id="applynowlink">Apply Now</a></button>
                         </div>
                     </div>
                     

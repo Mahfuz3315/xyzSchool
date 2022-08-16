@@ -20,6 +20,52 @@ use Illuminate\Support\Facades\Route;
 
 Route::get('/', [App\Http\Controllers\welcomeController::class, "index"]);
 
-Auth::routes();
+Route::get('/Calender', [App\Http\Controllers\welcomeController::class, "calender"]);
+
+//Auth::routes();
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+
+Route::get('/results', [App\Http\Controllers\resultcontroller::class, "index"]);
+
+Route::get('/routine', [App\Http\Controllers\routinecontroller::class, "index"]);
+
+Route::get('/admission', [App\Http\Controllers\admissioncontroller::class, "index"]);
+
+Route::get('/admissionresults', [App\Http\Controllers\admissioncontroller::class, "result"]);
+
+Route::get('/highlights', [App\Http\Controllers\admissioncontroller::class, "highlights"]);
+
+Route::get('/admindashboard', [App\Http\Controllers\HomeController::class, "index"]);
+
+Route::get('/studentprofiles', [App\Http\Controllers\admincontroller::class, "studentprofile"]);
+
+Route::get('/teacherprofiles', [App\Http\Controllers\admincontroller::class, "teacherprofile"]);
+
+Route::get('/resultsheets', [App\Http\Controllers\admincontroller::class, "resultsheet"]);
+
+Route::get('/teacherdashboard', [App\Http\Controllers\HomeController::class, "index"]);
+
+Route::get('/addresult', [App\Http\Controllers\resultcontroller::class, "upload"]);
+
+Route::post('/addingresult', [App\Http\Controllers\resultcontroller::class, "uploadresult"]);
+
+Route::middleware([
+    'auth:sanctum',
+    config('jetstream.auth_session'),
+    'verified'
+])->group(function () {
+    Route::get('/dashboard', function () {
+        return view('dashboard');
+    })->name('dashboard');
+    
+    // Route::get('/results', function () {
+    //     return view('results');
+    // })->name('results');
+    // Route::get('/routine', function () {
+    //     return view('routine');
+    // })->name('routine');
+    Route::get('welcome', function () {
+        return view('welcome');
+    })->name('welcome');
+});

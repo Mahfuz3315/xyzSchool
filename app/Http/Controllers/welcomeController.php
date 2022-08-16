@@ -13,4 +13,8 @@ class welcomeController extends Controller
     public function gotologin(){
         return view('login');
     }
+
+    public function calender(){
+        return view('calender');
+    }
 }
