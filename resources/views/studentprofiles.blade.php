@@ -14,7 +14,9 @@
                         <th style="border-bottom: 1px solid #ddd;padding: 8px;text-align: center; width: 5%;">Name</th>
                         <th style="border-bottom: 1px solid #ddd; padding: 8px;text-align: center; width: 5%;">Mail</th>
                         <th style="border-bottom: 1px solid #ddd; padding: 8px;text-align: center; width: 5%;">Student ID</th>
+                        @if(Auth::User()->role == "admin")
                         <th style="border-bottom: 1px solid #ddd; padding: 8px;text-align: center; width: 5%;">Actions</th>
+                        @endif
                 </table>
                 @foreach($studentprofiles as $r)
                 <table>   
@@ -22,8 +24,10 @@
                         <td style="border-bottom: 1px solid #ddd;padding: 8px;text-align: center; width: 5%">{{$r->name}}</td>
                         <td style="border-bottom: 1px solid #ddd;padding: 8px;text-align: center; width: 5%">{{$r->email}}</td>
                         <td style="border-bottom: 1px solid #ddd;padding: 8px;text-align: center; width: 5%">{{$r->student_id}}</td>
+                        @if(Auth::User()->role == "admin")
                         <td style="border-bottom: 1px solid #ddd;padding: 8px;text-align: center; width: 5%"><button style="margin-top: 20px;background-color: #398AB9;color: #EEEEEE;height: 30px;width: 50px;"><a href="{{url('/Edit')}}" id="applynowlink">Edit</a></button>
-                        <button style="margin-top: 20px;background-color: #ff0000;color: #EEEEEE;height: 30px;width: 60px;"><a href="{{url('/Delete')}}" id="applynowlink">Delete</a></button>
+                        <button style="margin-top: 20px;background-color: #ff0000;color: #EEEEEE;height: 30px;width: 60px;"><a href="{{url('/studentdelete', $r->id)}}" id="deletelink">Delete</a></button>
+                        @endif
                     </tr>
                 </table>
                 @endforeach

@@ -38,4 +38,9 @@ class resultcontroller extends Controller
 
         return view('addresult');
     }
+    public function resultdelete($id){
+        $resultsheet = result::find($id);
+        $resultsheet->delete();
+        return redirect()->back();
+    }
 }

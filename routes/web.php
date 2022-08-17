@@ -22,7 +22,9 @@ Route::get('/', [App\Http\Controllers\welcomeController::class, "index"]);
 
 Route::get('/Calender', [App\Http\Controllers\welcomeController::class, "calender"]);
 
-//Auth::routes();
+Route::get('/Notice', [App\Http\Controllers\welcomeController::class, "notice"]);
+
+Auth::routes();
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 
@@ -49,6 +51,14 @@ Route::get('/teacherdashboard', [App\Http\Controllers\HomeController::class, "in
 Route::get('/addresult', [App\Http\Controllers\resultcontroller::class, "upload"]);
 
 Route::post('/addingresult', [App\Http\Controllers\resultcontroller::class, "uploadresult"]);
+
+Route::get('/resultdelete/{id}', [App\Http\Controllers\resultcontroller::class, "resultdelete"]);
+
+Route::get('/studentdelete/{id}', [App\Http\Controllers\admincontroller::class, "studentdelete"]);
+
+Route::get('/teacherdelete/{id}', [App\Http\Controllers\admincontroller::class, "teacherdelete"]);
+
+
 
 Route::middleware([
     'auth:sanctum',

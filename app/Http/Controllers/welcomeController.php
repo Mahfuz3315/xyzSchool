@@ -17,4 +17,7 @@ class welcomeController extends Controller
     public function calender(){
         return view('calender');
     }
+    public function notice(){
+        return view('notice');
+    }
 }

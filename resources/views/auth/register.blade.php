@@ -20,7 +20,7 @@
             </div>
 
             <div class="mt-4">
-                <x-jet-label for="student_id" value="{{ __('Student ID') }}" />
+                <x-jet-label for="student_id" value="{{ __('ID') }}" />
                 <x-jet-input id="student_id" class="block mt-1 w-full" type="student_id" name="student_id" :value="old('student_id')" required />
             </div>
 

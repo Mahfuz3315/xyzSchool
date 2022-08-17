@@ -9,7 +9,7 @@ use App\Models\result;
 class admincontroller extends Controller
 {
     public function studentprofile(){
-        $students = User::select('name', 'email','student_id')->where('role', 'student')->get();
+        $students = User::select('id','name', 'email','student_id')->where('role', 'student')->get();
         // dd($routine);
 
         return view("studentprofiles", [
@@ -18,7 +18,7 @@ class admincontroller extends Controller
 
     }
     public function teacherprofile(){
-        $teachers = User::select('name', 'email')->where('role', 'teacher')->get();
+        $teachers = User::select('id','name', 'email')->where('role', 'teacher')->get();
         //$teachers = User::all();
         // dd($routine);
 
@@ -35,5 +35,17 @@ class admincontroller extends Controller
         return view("resultsheets", [
             "resultsheets" => $result
         ]);
+    }
+    public function studentdelete($id){
+        
+        $student = User::find($id);
+        $student->delete();
+        return redirect()->back();
+    }
+    public function teacherdelete($id){
+        
+        $teacher = User::find($id);
+        $teacher->delete();
+        return redirect()->back();
     }
 }
